@@ -4,11 +4,10 @@ import { useState } from "react";
 import { Header, BriefForm, BriefOutput } from "@/components";
 import { generateBrief } from "@/lib/api";
 import { BriefFormData } from "@/lib/validations";
-import { SEOBrief } from "@/types";
 import { AlertCircle, Sparkles } from "lucide-react";
 
 export default function Home() {
-  const [brief, setBrief] = useState<SEOBrief | null>(null);
+  const [brief, setBrief] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
