@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SEO Brief Generator - Frontend
 
-## Getting Started
+A modern Next.js frontend for generating AI-powered SEO content briefs.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Hook Form** - Performant form handling
+- **Zod** - Schema validation
+- **Lucide React** - Beautiful icons
+- **Geist Font** - Modern typography by Vercel
+
+## 📁 Project Structure
+
+```
+seo-frontend/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx          # Root layout with Geist font
+│   │   ├── page.tsx            # Main page
+│   │   └── globals.css         # Global styles
+│   ├── components/
+│   │   ├── Header.tsx          # Header component
+│   │   ├── BriefForm.tsx       # Form with validation
+│   │   └── BriefOutput.tsx     # Brief display
+│   ├── lib/
+│   │   ├── api.ts              # API client
+│   │   └── validations.ts      # Zod schemas
+│   └── types/
+│       └── index.ts            # TypeScript types
+├── public/
+├── tailwind.config.ts
+└── next.config.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Brand Color**: `#4f47e6` (Indigo/Purple)
+- **Font**: Geist Sans & Geist Mono
+- **Theme**: Light mode with gradient accents
+- **Animations**: Smooth transitions and loading states
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Setup
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js 18+
+- npm or yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+```bash
+git clone https://github.com/Mathankrsh/seo-frontend.git
+cd seo-frontend
+```
 
-## Deploy on Vercel
+2. Install dependencies:
+```bash
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Create `.env.local` file:
+```bash
+cp .env.example .env.local
+# Edit .env.local and set NEXT_PUBLIC_API_URL
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Run the development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+## 🚢 Deployment (Vercel)
+
+1. Push to GitHub
+2. Import repository in Vercel
+3. Add environment variable:
+   - `NEXT_PUBLIC_API_URL`: Your Railway backend URL
+4. Deploy!
+
+## 📝 Features
+
+- ✅ Dynamic keyword tag inputs
+- ✅ Real-time form validation
+- ✅ Loading states with animations
+- ✅ Error handling with user feedback
+- ✅ Copy-to-clipboard functionality
+- ✅ Responsive design
+- ✅ SEO optimized
+
+## 📄 License
+
+MIT
