@@ -37,9 +37,9 @@ export default function Home() {
     <div className="min-h-screen">
       <Header />
 
-      <main className="max-w-5xl mx-auto px-4 py-8">
+      <main className="max-w-3xl mx-auto px-4 py-8">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-medium mb-4">
             <Sparkles className="w-4 h-4" />
             AI-Powered SEO Content Strategy
@@ -56,68 +56,47 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Vertical Layout - Form First */}
+        <div className="space-y-8">
           {/* Form */}
-          <div>
-            <BriefForm onSubmit={handleSubmit} isLoading={isLoading} />
-          </div>
+          <BriefForm onSubmit={handleSubmit} isLoading={isLoading} />
 
-          {/* Output */}
-          <div>
-            {isLoading && (
-              <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8">
-                <div className="flex flex-col items-center justify-center py-12">
-                  <div className="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center mb-4 animate-pulse-brand">
-                    <Sparkles className="w-8 h-8 text-brand-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Generating Your SEO Brief
+          {/* Output Section */}
+          {isLoading && (
+            <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8">
+              <div className="flex flex-col items-center justify-center py-12">
+                <div className="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center mb-4 animate-pulse-brand">
+                  <Sparkles className="w-8 h-8 text-brand-600" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Generating Your SEO Brief
+                </h3>
+                <p className="text-gray-500 text-center">
+                  Our AI is analyzing your inputs and creating<br />
+                  optimized recommendations...
+                </p>
+                <div className="mt-6 w-full max-w-xs">
+                  <div className="h-2 rounded-full animate-shimmer" />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {error && (
+            <div className="bg-red-50 rounded-2xl border border-red-200 p-6">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-red-900">
+                    Error Generating Brief
                   </h3>
-                  <p className="text-gray-500 text-center">
-                    Our AI is analyzing your inputs and creating<br />
-                    optimized recommendations...
-                  </p>
-                  <div className="mt-6 w-full max-w-xs">
-                    <div className="h-2 rounded-full animate-shimmer" />
-                  </div>
+                  <p className="text-red-700 mt-1">{error}</p>
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {error && (
-              <div className="bg-red-50 rounded-2xl border border-red-200 p-6">
-                <div className="flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-red-900">
-                      Error Generating Brief
-                    </h3>
-                    <p className="text-red-700 mt-1">{error}</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {brief && !isLoading && <BriefOutput brief={brief} />}
-
-            {!brief && !isLoading && !error && (
-              <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8">
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-4">
-                    <Sparkles className="w-8 h-8 text-gray-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Your SEO Brief Will Appear Here
-                  </h3>
-                  <p className="text-gray-500 max-w-sm">
-                    Fill out the form on the left and click &quot;Generate SEO
-                    Brief&quot; to get your AI-powered content strategy.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+          {brief && !isLoading && <BriefOutput brief={brief} />}
         </div>
 
         {/* Footer */}

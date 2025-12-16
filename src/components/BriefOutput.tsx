@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check, FileText } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface BriefOutputProps {
     brief: string;
@@ -55,11 +56,9 @@ export function BriefOutput({ brief }: BriefOutputProps) {
                 </button>
             </div>
 
-            {/* Brief Content */}
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                <pre className="whitespace-pre-wrap font-mono text-sm text-gray-800 leading-relaxed">
-                    {brief}
-                </pre>
+            {/* Brief Content - Rendered Markdown */}
+            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 prose prose-gray max-w-none prose-headings:text-gray-900 prose-h1:text-2xl prose-h2:text-xl prose-h2:mt-6 prose-h2:mb-3 prose-h3:text-lg prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                <ReactMarkdown>{brief}</ReactMarkdown>
             </div>
         </div>
     );
